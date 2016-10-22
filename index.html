@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS Form Validation</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+</head>
+
+<body>
+  <div class="page">
+    <section class="card register" ng-app>
+      <form name="myform">
+        <div class="textintro">
+          <h1>入力フォーム</h1>
+          <p>以下の項目を入力してください。</p>
+          <p>{{ message }}</p>
+        </div>
+        <fieldset>
+          <input type="text" name="firstname" placeholder="名" ng-model="message">
+          <input type="text" name="lastname" placeholder="性">
+          <input type="text" name="mail" placeholder="メールアドレス">
+          <input type="text" name="password" placeholder="パスワード" ng-model="message">
+        </fieldset>
+      </form>
+    </section>
+  </div>
+</body>
+</html>
