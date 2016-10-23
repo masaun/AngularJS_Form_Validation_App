@@ -14,16 +14,22 @@
         <div class="textintro">
           <h1>入力フォーム</h1>
           <p>以下の項目を入力してください。</p>
-          <p ng-show="myform.firstname.$invalid">名を入力してください</p>
         </div>
         <fieldset>
           <input type="text" name="firstname" 
-          placeholder="名" 
+          placeholder="名"
           ng-model="user.firstname"
           ng-required="true">
-          <input type="text" name="lastname" placeholder="性" ng-model="user.lastname">
-          <input type="text" name="email" placeholder="メールアドレス" ng-model="user.email">
-          <input type="text" name="password" placeholder="パスワード" ng-model="user.password">
+          <p ng-show="myform.firstname.$invalid && myform.firstname.$touched" >名を入力してください</p>
+
+          <input type="text" name="lastname" placeholder="性" ng-model="user.lastname" ng-required="true">
+          <p ng-show="myform.lastname.$invalid && myform.lastname.$touched">性を入力してください</p>
+          
+          <input type="text" name="email" placeholder="メールアドレス" ng-model="user.email" ng-required="true">
+          <p ng-show="myform.email.$invalid && myform.email.$notouched">メールアドレスを入力してください</p>
+
+          <input type="text" name="password" placeholder="パスワード" ng-model="user.password" ng-required="true">
+          <p ng-show="myform.password.$invalid && myform.password.$touched">パスワードを入力してください</p>
         </fieldset>
         <button type="submit" class="btn">送信</button>
       </form>
