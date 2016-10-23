@@ -10,18 +10,22 @@
 <body>
   <div class="page">
     <section class="card register" ng-app>
-      <form name="myform">
+      <form name="myform" novalidate>
         <div class="textintro">
           <h1>入力フォーム</h1>
           <p>以下の項目を入力してください。</p>
-          <p>{{ message }}</p>
+          <p ng-show="myform.firstname.$invalid">名を入力してください</p>
         </div>
         <fieldset>
-          <input type="text" name="firstname" placeholder="名" ng-model="message">
-          <input type="text" name="lastname" placeholder="性">
-          <input type="text" name="mail" placeholder="メールアドレス">
-          <input type="text" name="password" placeholder="パスワード" ng-model="message">
+          <input type="text" name="firstname" 
+          placeholder="名" 
+          ng-model="user.firstname"
+          ng-required="true">
+          <input type="text" name="lastname" placeholder="性" ng-model="user.lastname">
+          <input type="text" name="email" placeholder="メールアドレス" ng-model="user.email">
+          <input type="text" name="password" placeholder="パスワード" ng-model="user.password">
         </fieldset>
+        <button type="submit" class="btn">送信</button>
       </form>
     </section>
   </div>
