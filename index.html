@@ -5,22 +5,26 @@
   <title>AngularJS Form Validation</title>
   <link href="css/style.css" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="js/app.js"></script>
 </head>
 
 <body>
   <div class="page">
-    <section class="card register" ng-app>
-      <form name="myform" novalidate>
+    <section class="card register" ng-app="myApp"
+    ng-controller="RegistrationController">
+      <form name="myform" novalidate
+      ng-submit="register()">
         <div class="textintro">
           <h1>入力フォーム</h1>
           <p>以下の項目を入力してください。</p>
+          <p ng-show="message">{{ message }}</p>
         </div>
         <fieldset>
-          <input type="text" name="firstname" 
+          <input type="text" name="firstname"
           placeholder="名"
           ng-model="user.firstname"
           ng-required="true">
-          <p class="error" ng-show="myform.firstname.$invalid && myform.firstname.$touched" >名を入力してください</p>
+          <p class="error" ng-show="myform.firstname.$invalid && myform.firstname.$touched">名を入力してください</p>
 
           <input type="text" 
           name="lastname" 
